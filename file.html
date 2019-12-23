@@ -1,0 +1,60 @@
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+   		var probs = ['Rock', 'Paper', 'Scissors']
+
+		function computerPlay() {
+			return(probs[Math.floor(Math.random() * probs.length)])
+		}
+
+		function playRound(playerSelection, computerSelection) {
+			playerChoice = playerSelection.toLowerCase()
+			computerChoice = computerSelection.toLowerCase()
+			if(playerChoice === 'rock' && computerChoice === 'paper'){
+				return('You Lose! Paper beats rock')	
+			}
+			else if (playerChoice === 'paper' && computerChoice === 'rock') {
+				return('You Win! Paper beats rock')
+			}
+			else if (playerChoice === 'paper' && computerChoice === 'scissors') {
+				return('You Lose! scissors beats paper')
+			}
+			else if (playerChoice === 'scissors' && computerChoice === 'paper') {
+				return('You Win! scissors beats paper')
+			}
+			else if (playerChoice === 'rock' && computerChoice === 'scissors') {
+				return('You Win! rock beats scissors')
+			}
+			else if (playerChoice === 'scissors' && computerChoice === 'rock') {
+				return('You Lose! scissors beats rock')
+			}
+
+			else {
+				return('That is a tie')
+			}
+
+		}
+
+
+		function game() {
+			for (i = 0; i < 5; i++) {
+				playRound(playerSelection, computerSelection)
+			}
+			console.log(playRound(playerSelection, computerSelection))
+
+		}
+
+		const playerSelection = 'paper'
+		const computerSelection = computerPlay()
+		
+
+	</script>
+    
+</body>
+</html>
