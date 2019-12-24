@@ -6,8 +6,24 @@
     <title>Document</title>
 </head>
 <body>
+
+	<div>
+		<button type="submit" id="rock" onclick="selection('rock')">Rock</button>
+		<button type="submit" id="paper" onclick="selection('paper')">Paper</button>
+		<button type="submit" id="scissors" onclick="selection('scissors')">Scissors</button>
+	</div>
+
+
+
+
+
     <script>
    		var probs = ['Rock', 'Paper', 'Scissors']
+		var wins = 0;
+		var losses = 0;
+		var ties = 0;
+
+		var results = [];
 
 		function computerPlay() {
 			return(probs[Math.floor(Math.random() * probs.length)])
@@ -18,56 +34,60 @@
 			computerChoice = computerPlay().toLowerCase()
 			
 			if(playerChoice === 'rock' && computerChoice === 'paper'){
+				losses++
 				return('You Lose! Paper beats rock')	
+				
 			}
 			
 			if (playerChoice === 'paper' && computerChoice === 'rock') {
+				wins++
 				return 'You Win! Paper beats rock'
+				
 			}
 			
 			if (playerChoice === 'paper' && computerChoice === 'scissors') {
+				losses++
 				return('You Lose! scissors beats paper')
+				
 			}
 			
 			if (playerChoice === 'scissors' && computerChoice === 'paper') {
+				wins++
 				return('You Win! scissors beats paper')
+				
 			}
 			
 			if (playerChoice === 'rock' && computerChoice === 'scissors') {
+				wins++
 				return('You Win! rock beats scissors')
+				
 			}
 			
 			if (playerChoice === 'scissors' && computerChoice === 'rock') {
+				losses++
 				return('You Lose! scissors beats rock')
+				
 			}
 			
 			if (playerChoice === computerChoice) {
+				ties++
 				return('That is a tie')
+				
 			}
 
 			return('Escolha invalida')
 
 		}
-
-
-		function game() {
-			for (i = 0; i < 5; i++) {
-				playRound(playerSelection)
-			}
-			console.log(playRound(playerSelection))
-
+	
+		function selection(option) {
+			var	result = playRound(option);
+			console.log(result);
+			results.push(result);
+			console.log(`Vitorias: ${wins} Derrotas: ${losses} Empates: ${ties}`);
 		}
 
-		const playerSelection = window.prompt();
-		// const computerSelection = computerPlay()
-		
 
-		if (playerSelection === 'rock'  || 'paper' || 'scissors') {
-			game();
-			} 
-		else {
-			location.reload();
-		}
+
 	</script>
     
 </body>
