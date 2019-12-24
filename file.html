@@ -50,10 +50,16 @@
 
 		}
 
-		const playerSelection = 'paper'
+		const playerSelection = window.prompt();
 		const computerSelection = computerPlay()
 		
 
+		if (playerSelection === 'rock'  || 'paper' || 'scissors') {
+			game();
+			} 
+		else {
+			location.reload();
+		}
 	</script>
     
 </body>
